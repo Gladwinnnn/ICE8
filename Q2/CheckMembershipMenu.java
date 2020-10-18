@@ -36,22 +36,19 @@ public class CheckMembershipMenu {
 
     // complete the checkMembershipDuration method here
     public void checkMembershipDuration() {
-        try{
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter the student's name> ");
-            String studentName = scanner.nextLine();
-            System.out.print("Enter the team's name> > ");
-            String teamName = scanner.nextLine();
-            int result = ctrl.checkMembershipDuration(studentName,teamName);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the student's name> ");
+        String studentName = scanner.nextLine();
+        System.out.print("Enter the team's name> > ");
+        String teamName = scanner.nextLine();
+        int result = ctrl.checkMembershipDuration(studentName,teamName);
 
-            if (result == 0){
-                System.out.print("" + studentName + " joined the team when the team is formed");
-            } else {
-                System.out.print("" + studentName + " joined the team " + result + " days after the team is formed");
-            }
-        } catch(NullPointerException e){
+        if (result == 0){
+            System.out.print("" + studentName + " joined the team when the team is formed");
+        } else if (result == -1){
             System.out.print("" + studentName + " is not in the team " + teamName + ".");
-            System.out.println();
+        } else {
+            System.out.print("" + studentName + " joined the team " + result + " days after the team is formed");
         }
     }
 }

@@ -11,7 +11,7 @@ public class CheckMembershipCtrl {
         Student student = team.retrieve(studentName);
 
         if (student == null){
-            return null;
+            return -1;
         }
 
         TMSDate dateJoined = student.getDateJoined();
